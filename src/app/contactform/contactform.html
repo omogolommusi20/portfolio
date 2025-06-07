@@ -1,0 +1,59 @@
+<section class="contact-section">
+  <h2>Contact Me</h2>
+  
+  <div class="contact-container">
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <ul>
+        <li>
+          <i class="material-icons">phone</i>
+          <span>{{ contactInfo.phone }}</span>
+        </li>
+        <li>
+          <i class="material-icons">email</i>
+          <span>{{ contactInfo.email }}</span>
+        </li>
+        <li>
+          <i class="material-icons">code</i>
+          <a [href]="contactInfo.github" target="_blank">GitHub Profile</a>
+        </li>
+        <li>
+          <i class="material-icons">person</i>
+          <a [href]="contactInfo.linkedin" target="_blank">LinkedIn Profile</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h3>Send Me a Message</h3>
+      
+      <form (ngSubmit)="submitForm()" *ngIf="!isSubmitted; else thankYou">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" [(ngModel)]="formData.name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" [(ngModel)]="formData.email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" [(ngModel)]="formData.message" name="message" required></textarea>
+        </div>
+        
+        <button type="submit">Send Message</button>
+      </form>
+
+      <ng-template #thankYou>
+        <div class="thank-you-message">
+          <h4>Thank you for your message!</h4>
+          <p>I'll get back to you soon.</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+/* aboutme.css */
+p {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px dashed #ccc;
+  min-height: 20px;
+  white-space: pre-wrap; /* Preserves line breaks */
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}

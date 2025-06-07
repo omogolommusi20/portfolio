@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Homepage } from './homepage/homepage';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [Homepage],
+  template: `<app-homepage></app-homepage>`,
+  styles: []
 })
-export class App {
-  protected title = 'portfolioassignmnet';
-}
+export class AppComponent {}

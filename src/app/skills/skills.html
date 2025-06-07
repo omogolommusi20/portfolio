@@ -1,0 +1,25 @@
+<div *ngIf="!isEditing; else editMode">
+  <h3>My Skills</h3>
+  <ul>
+    <li *ngFor="let skill of skills">{{ skill }}</li>
+  </ul>
+  <button (click)="startEditing()">Edit Skills</button>
+</div>
+
+<ng-template #editMode>
+  <h3>Edit Skills</h3>
+  <div class="add-skill">
+    <input [(ngModel)]="newSkill" placeholder="Add new skill" (keyup.enter)="addSkill()">
+    <button (click)="addSkill()">Add</button>
+  </div>
+  <ul>
+    <li *ngFor="let skill of editedSkills; let i = index">
+      {{ skill }}
+      <button (click)="removeSkill(i)">Remove</button>
+    </li>
+  </ul>
+  <div class="action-buttons">
+    <button (click)="saveChanges()">Save</button>
+    <button (click)="cancelEditing()">Cancel</button>
+  </div>
+</ng-template>
