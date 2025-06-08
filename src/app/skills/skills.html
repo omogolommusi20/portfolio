@@ -9,7 +9,7 @@
 <ng-template #editMode>
   <h3>Edit Skills</h3>
   <div class="add-skill">
-    <input [(ngModel)]="newSkill" placeholder="Add new skill" (keyup.enter)="addSkill()">
+    <input [(ngModel)]="newSkill" placeholder="Add new skill" (keyup.enter)="addSkill()" />
     <button (click)="addSkill()">Add</button>
   </div>
   <ul>
