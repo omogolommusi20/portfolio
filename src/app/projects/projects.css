@@ -1,15 +1,22 @@
 .projects-container {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .project-card {
-  background: #f5f5f5;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+  background-color: #fdfdfd;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
 }
 
 .project-card h3 {
   margin-top: 0;
+  font-size: 1.3rem;
   color: #333;
 }

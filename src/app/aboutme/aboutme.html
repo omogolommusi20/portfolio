@@ -1,12 +1,26 @@
-<div *ngIf="!isEditing; else editMode">
-  <p (click)="scrollToAbout()">{{ aboutText || 'Click to add about me' }}</p>
-  <button (click)="startEditing()">Edit</button>
+<div *ngIf="!isEditing; else editMode" class="about-display">
+  <p class="about-text" (click)="scrollToAbout()">
+    {{ aboutText || 'Click to add about me' }}
+  </p>
+  <button type="button" class="btn edit-btn" (click)="startEditing()">
+    Edit
+  </button>
 </div>
 
 <ng-template #editMode>
-  <textarea [(ngModel)]="editedText" rows="4" cols="50"></textarea>
-  <div>
-    <button (click)="saveChanges()">Save</button>
-    <button (click)="cancelEditing()">Cancel</button>
+  <div class="about-edit">
+    <label for="aboutInput" class="visually-hidden">Edit About Me</label>
+    <textarea
+      id="aboutInput"
+      [(ngModel)]="editedText"
+      rows="4"
+      cols="50"
+      class="textarea"
+      placeholder="Write something about yourself...">
+    </textarea>
+    <div class="button-group">
+      <button type="button" class="btn save-btn" (click)="saveChanges()">Save</button>
+      <button type="button" class="btn cancel-btn" (click)="cancelEditing()">Cancel</button>
+    </div>
   </div>
 </ng-template>

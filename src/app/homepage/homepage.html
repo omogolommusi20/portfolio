@@ -1,23 +1,32 @@
 <div class="container">
-  <section id="about" class="about-me">
-    <h2>About Me</h2>
+  <section id="about" class="section about-me">
+    <header>
+      <h2>About Me</h2>
+    </header>
     <app-aboutme 
       [(aboutText)]="aboutText" 
       (aboutTextChange)="updateAboutText($event)">
     </app-aboutme>
   </section>
 
-  <section class="skills">
-    <h2>Skills</h2>
+  <section id="skills" class="section skills">
+    <header>
+      <h2>Skills</h2>
+    </header>
     <app-skills [skills]="mySkills"></app-skills>
   </section>
 
-  <section class="projects">
-    <h2>Projects</h2>
+  <section id="projects" class="section projects">
+    <header>
+      <h2>Projects</h2>
+    </header>
     <app-projects></app-projects>
   </section>
 
-  <section class="contact">
-    <app-contactform></app-contactform> <!-- Replace with actual component -->
+  <section id="contact" class="section contact">
+    <header>
+      <h2>Contact</h2>
+    </header>
+    <app-contactform></app-contactform>
   </section>
 </div>

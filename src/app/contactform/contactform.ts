@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -9,16 +9,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './contactform.html',
   styleUrls: ['./contactform.css']
 })
-export class Contactform {
-  // Your contact information
+export class Contactform implements OnInit {
+  contactSaved = false;
+
   contactInfo = {
-    phone: '+1234567890',
-    email: 'your.email@example.com',
-    github: 'https://github.com/yourusername',
-    linkedin: 'https://linkedin.com/in/yourprofile'
+    phone: '',
+    email: '',
+    github: '',
+    linkedin: ''
   };
 
-  // Form data
   formData = {
     name: '',
     email: '',
@@ -27,12 +27,27 @@ export class Contactform {
 
   isSubmitted = false;
 
+  ngOnInit() {
+    const saved = localStorage.getItem('contactInfo');
+    if (saved) {
+      this.contactInfo = JSON.parse(saved);
+      this.contactSaved = true;
+    }
+  }
+
+  saveContactInfo() {
+    localStorage.setItem('contactInfo', JSON.stringify(this.contactInfo));
+    this.contactSaved = true;
+  }
+
+  editContactInfo() {
+    this.contactSaved = false;
+  }
+
   submitForm() {
-    // Here you would typically send the data to a backend
     console.log('Form submitted:', this.formData);
     this.isSubmitted = true;
-    
-    // Reset form after submission (in a real app, wait for success)
+
     setTimeout(() => {
       this.formData = { name: '', email: '', message: '' };
       this.isSubmitted = false;

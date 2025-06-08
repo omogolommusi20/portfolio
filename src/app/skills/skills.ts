@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -9,13 +9,21 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './skills.html',
   styleUrls: ['./skills.css']
 })
-export class Skills {
+export class Skills implements OnInit {
   @Input() skills: string[] = [];
   @Output() skillsChange = new EventEmitter<string[]>();
   
   isEditing = false;
   newSkill = '';
   editedSkills: string[] = [];
+
+  ngOnInit() {
+    const savedSkills = localStorage.getItem('skills');
+    if (savedSkills) {
+      this.skills = JSON.parse(savedSkills);
+      this.skillsChange.emit(this.skills);
+    }
+  }
 
   startEditing() {
     this.editedSkills = [...this.skills];
@@ -35,6 +43,7 @@ export class Skills {
 
   saveChanges() {
     this.skills = [...this.editedSkills];
+    localStorage.setItem('skills', JSON.stringify(this.skills)); // Save here
     this.skillsChange.emit(this.skills);
     this.isEditing = false;
   }

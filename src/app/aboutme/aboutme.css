@@ -1,29 +1,42 @@
-/* aboutme.css */
-p {
+.about-section p {
   cursor: pointer;
-  padding: 10px;
-  border: 1px dashed #ccc;
-  min-height: 20px;
-  white-space: pre-wrap; /* Preserves line breaks */
-}
-
-textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  font-family: inherit;
-  font-size: inherit;
-}
-
-button {
-  margin-right: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
+  padding: 12px 16px;
+  border: 1px dashed #bbb;
   border-radius: 4px;
+  min-height: 24px;
+  white-space: pre-wrap;
+  background-color: #fafafa;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #e0e0e0;
+.about-section p:hover {
+  background-color: #f0f0f0;
+}
+
+.about-section textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.about-section button {
+  margin-right: 10px;
+  padding: 8px 14px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.about-section button:hover {
+  background-color: #145a9e;
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './projects.html',
   styleUrls: ['./projects.css']
 })
-export class Projects {
+export class Projects implements OnInit {
   projects: any[] = [];
   isAddingProject = false;
   newProject = {
@@ -20,12 +20,19 @@ export class Projects {
     fileUrl: ''
   };
 
+  ngOnInit() {
+    const savedProjects = localStorage.getItem('projects');
+    if (savedProjects) {
+      this.projects = JSON.parse(savedProjects);
+    }
+  }
+
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
       this.newProject.file = file;
       this.newProject.fileName = file.name;
-      
+
       // Create preview URL
       const reader = new FileReader();
       reader.onload = (e: any) => {
@@ -43,7 +50,10 @@ export class Projects {
         fileName: this.newProject.fileName,
         fileUrl: this.newProject.fileUrl
       });
-      
+
+      // Save updated projects to localStorage
+      localStorage.setItem('projects', JSON.stringify(this.projects));
+
       // Reset form
       this.newProject = {
         title: '',
@@ -58,5 +68,6 @@ export class Projects {
 
   removeProject(index: number) {
     this.projects.splice(index, 1);
+    localStorage.setItem('projects', JSON.stringify(this.projects));
   }
 }
