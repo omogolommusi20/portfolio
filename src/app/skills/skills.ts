@@ -1,3 +1,4 @@
+// src/app/skills/skills.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -37,6 +38,7 @@ export class Skills implements OnInit {
     if (this.newSkill.trim()) {
       await this.skillsService.addSkill(this.newSkill.trim());
       this.newSkill = '';
+      this.loadSkills();
     }
   }
 

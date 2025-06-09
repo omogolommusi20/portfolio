@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Aboutme } from '../aboutme/aboutme';
 import { Skills } from '../skills/skills';
 import { Projects } from '../projects/projects';
-import { Contactform } from '../contactform/contactform'; // Add this import
+import { Contactform } from '../contactform/contactform';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     Aboutme, 
     Skills, 
-    Projects,
-    Contactform, // Add this to imports array
+    Projects, 
+    Contactform,
     FormsModule, 
     CommonModule
   ],
@@ -22,7 +22,6 @@ import { CommonModule } from '@angular/common';
 })
 export class Homepage {
   aboutText = 'This is my default about me text.';
-  mySkills = ['Angular', 'Firebase', 'Flutter'];
 
   updateAboutText(newText: string) {
     this.aboutText = newText;

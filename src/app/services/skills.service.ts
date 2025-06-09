@@ -1,3 +1,4 @@
+// src/app/services/skills.service.ts
 import { Injectable } from '@angular/core';
 import { Firestore, collection, collectionData, addDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -15,7 +16,7 @@ export class SkillsService {
 
   getSkills(): Observable<string[]> {
     return collectionData(this.skillsCollection, { idField: 'id' }).pipe(
-      map((docs: any[]) => docs.map(doc => doc.name)) // extract just the skill name
+      map((docs: any[]) => docs.map(doc => doc.name))
     );
   }
 
